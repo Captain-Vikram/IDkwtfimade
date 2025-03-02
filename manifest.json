@@ -1,0 +1,44 @@
+{
+   "action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html",
+      "default_title": "Open My Audio Recorder"
+   },
+   "background": {
+      "service_worker": "service_worker.js"
+   },
+   "commands": {
+      "start": {
+         "description": "Start Recording",
+         "suggested_key": {
+            "default": "Ctrl+Shift+S",
+            "mac": "Command+Shift+S"
+         }
+      },
+      "stop": {
+         "description": "Stop Recording",
+         "suggested_key": {
+            "default": "Ctrl+Shift+X",
+            "mac": "Command+Shift+X"
+         }
+      }
+   },
+   "content_scripts": [
+      {
+         "css": [ "styles.css" ],
+         "js": [ "main.js" ],
+         "matches": [ "<all_urls>" ]
+      }
+   ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "description": "Easily record audio from any tab and save it as a file. Perfect for capturing webinars, podcasts, or online meetings.",
+   "host_permissions": [ "<all_urls>" ],
+   "manifest_version": 3,
+   "name": "My Audio Recorder",
+   "options_page": "options.html",
+   "permissions": [ "tabCapture", "downloads", "offscreen", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0"
+}
